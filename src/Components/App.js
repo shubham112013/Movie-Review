@@ -151,7 +151,7 @@ function MovieDetail({
   const [userRating, setUserRating] = useState("");
 
   const isAlreadyWatched = watched
-    .map((movie) => movie.imdbID)
+    ?.map((movie) => movie.imdbID)
     .includes(selectedId);
 
   const watchedUserRating = watched.find(
