@@ -1,7 +1,18 @@
 export default function WatchedSummary({ watched = [], average }) {
-  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  const avgUserRating = average(watched.map((movie) => movie.userRating));
-  const avgRuntime = average(watched.map((movie) => movie.runtime));
+  // Check if watched array has any movies; if not, set default average values to 0
+  const avgImdbRating =
+    watched.length > 0
+      ? average(watched.map((movie) => movie.imdbRating || 0))
+      : 0;
+  const avgUserRating =
+    watched.length > 0
+      ? average(watched.map((movie) => movie.userRating || 0))
+      : 0;
+  const avgRuntime =
+    watched.length > 0
+      ? average(watched.map((movie) => movie.runtime || 0))
+      : 0;
+
   return (
     <div className="summary">
       <h2>Movies you watched</h2>
@@ -20,7 +31,7 @@ export default function WatchedSummary({ watched = [], average }) {
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{avgRuntime.toFixed(0)} min</span>
         </p>
       </div>
     </div>
