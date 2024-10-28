@@ -1,15 +1,15 @@
 export default function WatchedSummary({ watched = [], average }) {
   // Check if watched array has any movies; if not, set default average values to 0
   const avgImdbRating =
-    watched.length > 0
+    watched?.length > 0
       ? average(watched.map((movie) => movie.imdbRating || 0))
       : 0;
   const avgUserRating =
-    watched.length > 0
+    watched?.length > 0
       ? average(watched.map((movie) => movie.userRating || 0))
       : 0;
   const avgRuntime =
-    watched.length > 0
+    watched?.length > 0
       ? average(watched.map((movie) => movie.runtime || 0))
       : 0;
 
