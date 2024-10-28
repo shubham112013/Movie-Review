@@ -41,7 +41,7 @@ export default function App() {
 
   function handleAddWatchedMovie(movie) {
     if (movie && movie.imdbID) {
-      setWatched((prev) => [...prev, movie]);
+      setWatched((prev) => [...(Array.isArray(prev) ? prev : []), movie]);
     } else {
       console.warn("Invalid movie data:", movie);
     }
