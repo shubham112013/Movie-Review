@@ -144,7 +144,7 @@ function MovieDetail({
   selectedId,
   unSelectedMovie,
   onAddWatched,
-  watched,
+  watched = [],
   handleDelete,
 }) {
   const [Movie, setMovie] = useState({});
@@ -154,7 +154,7 @@ function MovieDetail({
     ?.map((movie) => movie.imdbID)
     .includes(selectedId);
 
-  const watchedUserRating = watched.find(
+  const watchedUserRating = watched?.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
 
